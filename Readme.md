@@ -3,10 +3,10 @@
 ## Pre-requisities
 - Jenkins Server with terraform installed on it
 
-## Description \n  
+## Description   
 This project is used to display the number of visits on web server(Flask). This data is stored in database server Redis.
 
-Tools Used :
+## Tools Used :
   - Jenkins
   - Terraform
   - Docker
