@@ -22,7 +22,7 @@ def get_hit_count():
 def hit():
     count = get_hit_count()
     return render_template('DevOps.html',htcount=count)
-    return 'Whoa!This Web Server have been hit %i times since deployment !!.\n' % int(count)
+    
 
 
 if __name__ == "__main__":
