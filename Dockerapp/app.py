@@ -21,7 +21,7 @@ def get_hit_count():
 @app.route('/')
 def hit():
     count = get_hit_count()
-    return 'This Web Server have been hit %i times since deployment !!.\n' % int(count)
+    return 'Whoa!This Web Server have been hit %i times since deployment !!.\n' % int(count)
 
 
 if __name__ == "__main__":
