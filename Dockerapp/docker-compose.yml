@@ -1,0 +1,8 @@
+version: '3'
+services:
+  myapp:
+    build: /shivu
+    ports:
+     - "80:5000"
+  redis-lb:
+    image: "redis:alpine"
