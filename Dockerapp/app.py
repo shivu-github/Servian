@@ -21,6 +21,7 @@ def get_hit_count():
 @app.route('/')
 def hit():
     count = get_hit_count()
+    return render_template('DevOps.html')
     return 'Whoa!This Web Server have been hit %i times since deployment !!.\n' % int(count)
 
 
