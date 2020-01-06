@@ -3,11 +3,11 @@ provider "aws" {
 }
 
 # Create EC2 instance
-resource "aws_instance" "servian-ec35" {
+resource "aws_instance" "servian-ec2" {
   ami                    = "ami-0dacb0c129b49f529"
   instance_type          = "t2.micro"
-  key_name               = "shivu-key"
-  vpc_security_group_ids = ["${aws_security_group.servian-sg35.id}"]
+  key_name               = "servian"
+  vpc_security_group_ids = ["${aws_security_group.servian-sg.id}"]
   user_data = <<EOF
                 #!/bin/bash
                 sudo yum update -y
@@ -17,12 +17,12 @@ resource "aws_instance" "servian-ec35" {
                 sudo chmod +x /usr/local/bin/docker-compose
   EOF
   tags = {
-          Name = "servian-ec35"
+          Name = "servian-ec2"
          }
 }
 
-resource "aws_security_group" "servian-sg35" {
-  name = "servian-sg35"
+resource "aws_security_group" "servian-sg" {
+  name = "servian-sg"
 
   ingress {
     from_port   = 80
@@ -38,19 +38,6 @@ resource "aws_security_group" "servian-sg35" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    from_port   = 8080
-    to_port     = 8080
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
- ingress {
-    from_port   = 5000
-    to_port     = 5000
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
 
   egress {
     from_port   = 0
