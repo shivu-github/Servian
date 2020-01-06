@@ -1,4 +1,5 @@
 provider "aws" {
+  shared_credentials_file = "~/.aws/credentials"
 }
 
 # Create EC2 instance
