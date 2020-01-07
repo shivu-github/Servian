@@ -6,7 +6,7 @@ provider "aws" {
 
 # Create EC2 instance
 resource "aws_instance" "servian-ec2-new" {
-  ami                    = "ami-0dacb0c129b49f529"
+  ami                    = "ami-06d0f8680277569ce"
   instance_type          = "t2.micro"
   key_name               = "servian"
   vpc_security_group_ids = ["${aws_security_group.servian-sg-new.id}"]
