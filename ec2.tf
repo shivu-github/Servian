@@ -5,11 +5,11 @@ provider "aws" {
 }
 
 # Create EC2 instance
-resource "aws_instance" "servian-ec2" {
-  ami                    = "ami-06d0f8680277569ce"
+resource "aws_instance" "servian-ec2-new" {
+  ami                    = "ami-0dacb0c129b49f529"
   instance_type          = "t2.micro"
   key_name               = "servian"
-  vpc_security_group_ids = ["${aws_security_group.servian-sg.id}"]
+  vpc_security_group_ids = ["${aws_security_group.servian-sg-new.id}"]
   
   user_data = <<EOF
                 #!/bin/bash
@@ -23,12 +23,12 @@ resource "aws_instance" "servian-ec2" {
   EOF
 
   tags = {
-          Name = "servian-ec2"
+          Name = "servian-ec2-new"
          }
 }
 
-resource "aws_security_group" "servian-sg" {
-  name = "servian-sg"
+resource "aws_security_group" "servian-sg-new" {
+  name = "servian-sg-new"
 
   ingress {
     from_port   = 80
