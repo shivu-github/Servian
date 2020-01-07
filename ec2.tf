@@ -14,6 +14,7 @@ resource "aws_instance" "servian-ec2-new" {
   user_data = <<EOF
                 #!/bin/bash
                 sudo service docker start
+                sudo service sshd restart 
                 
   EOF
 
